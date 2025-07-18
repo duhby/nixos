@@ -71,6 +71,11 @@
   ];
   environment.variables.EDITOR = "nvim";
 
+  fonts.packages = with pkgs; [
+    nerd-fonts.fira-code
+    nerd-fonts.jetbrains-mono
+  ];
+
   services.fwupd.enable = true;
   services.displayManager.ly.enable = true;
 
