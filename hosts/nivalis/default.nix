@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports =
@@ -68,6 +68,8 @@
     btop
     wget
     git
+    wezterm
+    swayfx
   ];
   environment.variables.EDITOR = "nvim";
 
@@ -77,7 +79,35 @@
   ];
 
   services.fwupd.enable = true;
-  services.displayManager.ly.enable = true;
+
+  services.greetd = {
+    enable = true;
+    settings.default_session = {
+      #command = "${pkgs.greetd.tuigreet}/bin/tuigreet --sessions ${config.services.xserver.displayManager.sessionData.desktops}/share/xsessions:${config.services.xserver.displayManager.sessionData.desktops}/share/wayland-sessions --remember --remember-session --time --cmd ${pkgs.swayfx}/bin/sway";
+      command = "${pkgs.greetd.tuigreet}/bin/tuigreet --asterisks --remember --remember-session --time --cmd ${pkgs.swayfx}/bin/sway";
+      user = "greeter";
+    };
+
+    #settings = rec {
+    #  initial_session = {
+    #    command = "${pkgs.swayfx}/bin/sway";
+    #    user = "josh";
+    #  };
+    #  default_session = initial_session;
+    #};
+  };
+
+  #xdg.configFile."sway/config".source = pkgs.lib.mkOverride 0 "/home/josh/.config/sway/config";
+
+  #services.displayManager.ly = {
+  #  enable = true;
+    # TODO: fix
+    #settings = {
+    #  vi_mode = true;
+    #  animation = "gameoflife";
+    #  bigclock = "en";
+    #};
+  #};
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
