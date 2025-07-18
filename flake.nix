@@ -4,10 +4,10 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-#    swayfx = {
-#      url = "github:/WillPower3309/swayfx";
-#      inputs.nixpkgs.follows = "nixpkgs";
-#    };
+    swayfx = {
+      url = "github:/WillPower3309/swayfx";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, nixos-hardware, ...} @inputs: {
