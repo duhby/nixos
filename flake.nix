@@ -13,7 +13,7 @@
         {
           system = "x86_64-linux";
           modules = [
-            ./hosts/nivalis/configuration.nix
+            ./hosts/nivalis
 	    nixos-hardware.nixosModules.framework-12th-gen-intel
           ];
         };
