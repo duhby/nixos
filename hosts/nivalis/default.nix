@@ -6,6 +6,7 @@
 
 let
   swayfxPkg = inputs.swayfx.packages.${pkgs.system}.default;
+  zenbrowserPkg = inputs.zen-browser.packages.${pkgs.system}.default;
 in {
   imports =
     [ # Include the results of the hardware scan.
@@ -72,8 +73,20 @@ in {
     git
     wezterm
     swayfxPkg
+    zenbrowserPkg
+    pokeget-rs
+    starship
   ];
   environment.variables.EDITOR = "nvim";
+  programs.zsh.enable = true;
+  programs.starship = {
+    enable = true;
+    presets =
+      [
+        "nerd-font-symbols"
+      ];
+  };
+  users.defaultUserShell = pkgs.zsh;
 
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code
