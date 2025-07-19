@@ -7,6 +7,7 @@
 let
   swayfxPkg = inputs.swayfx.packages.${pkgs.system}.default;
   zenbrowserPkg = inputs.zen-browser.packages.${pkgs.system}.default;
+  weztermPkg = inputs.wezterm.packages.${pkgs.system}.default;
 in {
   imports =
     [ # Include the results of the hardware scan.
@@ -71,12 +72,14 @@ in {
     btop
     wget
     git
-    wezterm
+    #wezterm
+    weztermPkg
     swayfxPkg
     zenbrowserPkg
     pokeget-rs
     starship
     bibata-cursors
+    xorg.xlsclients
   ];
   environment.variables.EDITOR = "nvim";
   programs.zsh.enable = true;
@@ -92,6 +95,7 @@ in {
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code
     nerd-fonts.jetbrains-mono
+    open-sans
   ];
 
   services.fwupd.enable = true;
