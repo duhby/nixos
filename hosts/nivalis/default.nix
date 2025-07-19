@@ -5,9 +5,12 @@
 { config, pkgs, inputs, ... }:
 
 let
-  swayfxPkg = inputs.swayfx.packages.${pkgs.system}.default;
-  zenbrowserPkg = inputs.zen-browser.packages.${pkgs.system}.default;
-  weztermPkg = inputs.wezterm.packages.${pkgs.system}.default;
+  getPkg = name: inputs.${name}.packages.${pkgs.system}.default;
+
+  # Custom inputs
+  swayfxPkg = getPkg "swayfx";
+  zenbrowserPkg = getPkg "zen-browser";
+  weztermPkg = getPkg "wezterm";
 in {
   imports =
     [ # Include the results of the hardware scan.
@@ -115,8 +118,6 @@ in {
     dates = "weekly";
     options = "--delete-older-than 7d";
   };
-
-  #xdg.configFile."sway/config".source = pkgs.lib.mkOverride 0 "/home/josh/.config/sway/config";
 
   #services.displayManager.ly = {
   #  enable = true;
