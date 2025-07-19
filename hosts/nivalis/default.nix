@@ -80,6 +80,7 @@ in {
     starship
     bibata-cursors
     xorg.xlsclients
+    du-dust
   ];
   environment.variables.EDITOR = "nvim";
   programs.zsh.enable = true;
@@ -107,6 +108,12 @@ in {
       command = "${pkgs.greetd.tuigreet}/bin/tuigreet --asterisks --remember --time --cmd ${swayfxPkg}/bin/sway";
       user = "greeter";
     };
+  };
+
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 7d";
   };
 
   #xdg.configFile."sway/config".source = pkgs.lib.mkOverride 0 "/home/josh/.config/sway/config";
