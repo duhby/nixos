@@ -76,6 +76,7 @@ in {
     zenbrowserPkg
     pokeget-rs
     starship
+    bibata-cursors
   ];
   environment.variables.EDITOR = "nvim";
   programs.zsh.enable = true;
