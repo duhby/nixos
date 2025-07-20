@@ -48,6 +48,7 @@ in {
   environment.systemPackages = with pkgs; [
     bibata-cursors
     btop
+    chezmoi
     du-dust
     git
     neovim
