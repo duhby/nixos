@@ -84,7 +84,15 @@ in {
   };
 
   # Audio (the rest is configured in the nixos-hardware module)
-  services.pipewire.enable = true;
+  hardware.pulseaudio.enable = false;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    wireplumber.enable = true;
+  };
 
   # Display manager
   services.greetd = {
