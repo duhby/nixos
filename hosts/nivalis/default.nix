@@ -53,6 +53,7 @@ in {
     git
     neovim
     pokeget-rs
+    rage
     starship
     #wezterm
     wget
