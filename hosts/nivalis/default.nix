@@ -5,8 +5,8 @@ let
 
   # Custom inputs
   swayfxPkg = getPkg "swayfx";
-  zenbrowserPkg = getPkg "zen-browser";
   weztermPkg = getPkg "wezterm";
+  zenbrowserPkg = getPkg "zen-browser";
 in {
   imports =
     [
@@ -16,35 +16,25 @@ in {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # $ fwupdmgr update (firmware)
-  services.fwupd.enable = true;
+  #services.fwupd.enable = true;
 
   # Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nivalis"; # Define your hostname.
+  # Networking
+  networking.hostName = "nivalis";
   networking.networkmanager.enable = true;
 
+  # Internationalization
   time.timeZone = "America/Denver";
   i18n.defaultLocale = "en_US.UTF-8";
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_US.UTF-8";
-    LC_IDENTIFICATION = "en_US.UTF-8";
-    LC_MEASUREMENT = "en_US.UTF-8";
-    LC_MONETARY = "en_US.UTF-8";
-    LC_NAME = "en_US.UTF-8";
-    LC_NUMERIC = "en_US.UTF-8";
-    LC_PAPER = "en_US.UTF-8";
-    LC_TELEPHONE = "en_US.UTF-8";
-    LC_TIME = "en_US.UTF-8";
-  };
-
-  # Keyboard layout
   services.xserver.xkb = {
     layout = "us";
     variant = "";
   };
 
+  # User
   users.users.josh = {
     isNormalUser = true;
     extraGroups = [ "networkmanager" "wheel" "audio" "video" ];
@@ -53,31 +43,32 @@ in {
     #packages = with pkgs; [];
   };
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
   # Environment
+  nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
-    neovim
+    bibata-cursors
     btop
-    wget
+    du-dust
     git
-    #wezterm
-    weztermPkg
-    swayfxPkg
-    zenbrowserPkg
+    neovim
     pokeget-rs
     starship
-    bibata-cursors
+    #wezterm
+    wget
     xorg.xlsclients
-    du-dust
+    # Custom
+    swayfxPkg
+    weztermPkg # temp
+    zenbrowserPkg
   ];
-  environment.variables.EDITOR = "nvim";
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code
     nerd-fonts.jetbrains-mono
     open-sans
   ];
+  environment.variables = {
+    EDITOR = "nvim";
+  };
 
   # Shell
   programs.zsh.enable = true;
