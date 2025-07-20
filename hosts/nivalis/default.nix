@@ -82,6 +82,9 @@ in {
       ];
   };
 
+  # Audio (the rest is configured in the nixos-hardware module)
+  services.pipewire.enable = true;
+
   # Display manager
   services.greetd = {
     enable = true;
