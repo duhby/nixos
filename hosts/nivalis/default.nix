@@ -50,11 +50,13 @@ in {
     btop
     chezmoi
     du-dust
+    gimp3
     git
     neovim
     pokeget-rs
     rage
     starship
+    sway-contrib.grimshot
     #wezterm
     wget
     xorg.xlsclients
@@ -84,7 +86,7 @@ in {
   };
 
   # Audio (the rest is configured in the nixos-hardware module)
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
