@@ -52,6 +52,7 @@ in {
     btop
     chezmoi
     unstablePkgs.dbeaver-bin # TODO: fix cursor
+    delta
     dict
     du-dust
     gimp3
