@@ -49,6 +49,7 @@ in {
     bibata-cursors
     btop
     chezmoi
+    dbeaver-bin
     dict
     du-dust
     gimp3
