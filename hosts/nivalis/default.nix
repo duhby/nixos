@@ -49,6 +49,7 @@ in {
     bibata-cursors
     btop
     chezmoi
+    dict
     du-dust
     gimp3
     git
@@ -73,6 +74,7 @@ in {
   environment.variables = {
     EDITOR = "nvim";
   };
+  programs.nix-ld.enable = true;
 
   # Shell
   programs.zsh.enable = true;
