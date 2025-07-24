@@ -59,6 +59,7 @@ in {
     neovim
     pokeget-rs
     rage
+    rofi-wayland
     starship
     sway-contrib.grimshot
     #wezterm
