@@ -80,7 +80,6 @@ in {
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
   programs.starship = {
-    enable = true;
     presets =
       [
         "nerd-font-symbols"
