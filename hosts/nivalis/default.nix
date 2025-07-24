@@ -1,9 +1,11 @@
 { config, pkgs, inputs, ... }:
 
 let
-  getPkg = name: inputs.${name}.packages.${pkgs.system}.default;
-
+  unstablePkgs = import inputs.nixpkgs-unstable {
+    inherit (pkgs) system;
+  };
   # Custom inputs
+  getPkg = name: inputs.${name}.packages.${pkgs.system}.default;
   swayfxPkg = getPkg "swayfx";
   weztermPkg = getPkg "wezterm";
   zenbrowserPkg = getPkg "zen-browser";
@@ -49,7 +51,7 @@ in {
     bibata-cursors
     btop
     chezmoi
-    dbeaver-bin
+    unstablePkgs.dbeaver-bin # TODO: fix cursor
     dict
     du-dust
     gimp3
