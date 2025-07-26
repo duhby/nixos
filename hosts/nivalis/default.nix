@@ -55,6 +55,8 @@ in {
     delta
     dict
     du-dust
+    dunst
+    eza
     gimp3
     git
     neovim
