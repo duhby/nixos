@@ -63,6 +63,7 @@ in {
     nix-search-cli
     pokeget-rs
     rage
+    ripgrep
     rofi-wayland
     starship
     sway-contrib.grimshot
