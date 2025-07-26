@@ -60,6 +60,7 @@ in {
     gimp3
     git
     neovim
+    nix-search-cli
     pokeget-rs
     rage
     rofi-wayland
