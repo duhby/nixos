@@ -61,6 +61,7 @@ in {
     gcc
     gimp3
     git
+    lazydocker
     neovim
     nix-search-cli
     pokeget-rs
