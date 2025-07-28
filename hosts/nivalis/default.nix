@@ -7,6 +7,7 @@ let
   # Custom inputs
   getPkg = name: inputs.${name}.packages.${pkgs.system}.default;
   swayfxPkg = getPkg "swayfx";
+  terminalRainLightningPkg = getPkg "terminal-rain-lightning";
   weztermPkg = getPkg "wezterm";
   zenbrowserPkg = getPkg "zen-browser";
 in {
@@ -57,6 +58,7 @@ in {
     du-dust
     dunst
     eza
+    gcc
     gimp3
     git
     neovim
@@ -67,11 +69,14 @@ in {
     rofi-wayland
     starship
     sway-contrib.grimshot
+    unzip
     #wezterm
     wget
+    wl-clipboard
     xorg.xlsclients
     # Custom
     swayfxPkg
+    terminalRainLightningPkg
     weztermPkg # temp
     zenbrowserPkg
   ];

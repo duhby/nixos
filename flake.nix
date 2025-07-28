@@ -9,12 +9,16 @@
       url = "github:/WillPower3309/swayfx";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    zen-browser = {
-      url = "github:0xc000022070/zen-browser-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
+    terminal-rain-lightning = {
+        url = "path:./pkgs/terminal-rain-lightning";
+        inputs.nixpkgs.follows = "nixpkgs";
     };
     wezterm = {
       url = "github:duhby/wezterm";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
