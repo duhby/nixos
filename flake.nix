@@ -10,8 +10,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     terminal-rain-lightning = {
-        url = "path:./pkgs/terminal-rain-lightning";
-        inputs.nixpkgs.follows = "nixpkgs";
+      url = "path:./pkgs/terminal-rain-lightning";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     wezterm = {
       url = "github:duhby/wezterm";
