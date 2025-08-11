@@ -40,7 +40,7 @@ in {
   # User
   users.users.josh = {
     isNormalUser = true;
-    extraGroups = [ "networkmanager" "wheel" "audio" "video" ];
+    extraGroups = [ "networkmanager" "wheel" "audio" "video" "docker" ];
     hashedPassword = "$6$oP3MZdVPRho1KWaD$1f8KQL5bUxyJOUJVqhlvtgVse250Q3uanCmx5AJw8/hcKorc99Q6rbgyYziclSWZwCEWpAmOUd8Ejk4FxN0mn1";
     # There's only one user, so it's easier if everything is installed to systemPackages
     #packages = with pkgs; [];
@@ -52,7 +52,6 @@ in {
     bibata-cursors
     btop
     chezmoi
-    unstablePkgs.dbeaver-bin # TODO: fix cursor
     delta
     dict
     du-dust
@@ -62,6 +61,7 @@ in {
     gimp3
     git
     lazydocker
+    lunar-client
     neovim
     nix-search-cli
     pokeget-rs
@@ -90,6 +90,7 @@ in {
     EDITOR = "nvim";
   };
   programs.nix-ld.enable = true;
+  virtualisation.docker.enable = true;
 
   # Shell
   programs.zsh.enable = true;
