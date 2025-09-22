@@ -3,6 +3,7 @@
 let
   unstablePkgs = import inputs.nixpkgs-unstable {
     inherit (pkgs) system;
+    config.allowUnfree = true;
   };
   # Custom inputs
   getPkg = name: inputs.${name}.packages.${pkgs.system}.default;
@@ -17,6 +18,7 @@ in {
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.trusted-users = [ "root" "josh" ];
 
   # $ fwupdmgr update (firmware)
   #services.fwupd.enable = true;
@@ -28,6 +30,7 @@ in {
   # Networking
   networking.hostName = "nivalis";
   networking.networkmanager.enable = true;
+  networking.nameservers = [ "1.1.1.1" "9.9.9.9" ];
 
   # Internationalization
   time.timeZone = "America/Denver";
@@ -53,7 +56,9 @@ in {
     btop
     chezmoi
     delta
+    devenv
     dict
+    direnv
     du-dust
     dunst
     eza
@@ -61,15 +66,17 @@ in {
     gimp3
     git
     lazydocker
-    lunar-client
+    unstablePkgs.lunar-client
     neovim
     nix-search-cli
     pokeget-rs
+    neofetch
     rage
     ripgrep
     rofi-wayland
     starship
     sway-contrib.grimshot
+    tt
     unzip
     #wezterm
     wget
