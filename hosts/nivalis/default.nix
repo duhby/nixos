@@ -129,6 +129,13 @@ in {
       user = "greeter";
     };
   };
+  # Fingerprint Auth
+  services.fprintd.enable = true;
+  security.pam.services = {
+    greetd.fprintAuth = true;
+    login.fprintAuth = true;
+    sudo.fprintAuth = true;
+  };
   # currently broken
   #services.displayManager.ly = {
   #  enable = true;
