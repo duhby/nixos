@@ -1,6 +1,8 @@
-{ config, pkgs, inputs, ... }:
-
-let
+{
+  pkgs,
+  inputs,
+  ...
+}: let
   unstablePkgs = import inputs.nixpkgs-unstable {
     inherit (pkgs) system;
     config.allowUnfree = true;
@@ -12,13 +14,12 @@ let
   weztermPkg = getPkg "wezterm";
   zenbrowserPkg = getPkg "zen-browser";
 in {
-  imports =
-    [
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    ./hardware-configuration.nix
+  ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  nix.settings.trusted-users = [ "root" "josh" ];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.trusted-users = ["root" "josh"];
 
   # $ fwupdmgr update (firmware)
   #services.fwupd.enable = true;
@@ -30,7 +31,7 @@ in {
   # Networking
   networking.hostName = "nivalis";
   networking.networkmanager.enable = true;
-  networking.nameservers = [ "1.1.1.1" "9.9.9.9" ];
+  networking.nameservers = ["1.1.1.1" "9.9.9.9"];
 
   # Internationalization
   time.timeZone = "America/Denver";
@@ -43,7 +44,7 @@ in {
   # User
   users.users.josh = {
     isNormalUser = true;
-    extraGroups = [ "networkmanager" "wheel" "audio" "video" "docker" ];
+    extraGroups = ["networkmanager" "wheel" "audio" "video" "docker"];
     hashedPassword = "$6$oP3MZdVPRho1KWaD$1f8KQL5bUxyJOUJVqhlvtgVse250Q3uanCmx5AJw8/hcKorc99Q6rbgyYziclSWZwCEWpAmOUd8Ejk4FxN0mn1";
     # There's only one user, so it's easier if everything is installed to systemPackages
     #packages = with pkgs; [];
@@ -55,6 +56,7 @@ in {
     bibata-cursors
     btop
     chezmoi
+    unstablePkgs.cursor-cli
     delta
     devenv
     dict
@@ -76,6 +78,7 @@ in {
     rofi-wayland
     starship
     sway-contrib.grimshot
+    swaylock
     tt
     unzip
     #wezterm
@@ -103,10 +106,9 @@ in {
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
   programs.starship = {
-    presets =
-      [
-        "nerd-font-symbols"
-      ];
+    presets = [
+      "nerd-font-symbols"
+    ];
   };
 
   # Audio (the rest is configured in the nixos-hardware module)
@@ -120,7 +122,10 @@ in {
     wireplumber.enable = true;
   };
 
-  # Display manager
+  # Authentication
+  # Lock Screen
+  #programs.swaylock.enable = true;
+  # Display Manager
   services.greetd = {
     enable = true;
     settings.default_session = {
@@ -135,6 +140,7 @@ in {
     greetd.fprintAuth = true;
     login.fprintAuth = true;
     sudo.fprintAuth = true;
+    swaylock.fprintAuth = true;
   };
   # currently broken
   #services.displayManager.ly = {
