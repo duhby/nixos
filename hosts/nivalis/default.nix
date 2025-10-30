@@ -71,6 +71,7 @@ in {
     unstablePkgs.lunar-client
     neovim
     nix-search-cli
+    unstablePkgs.opencode
     pokeget-rs
     neofetch
     rage
