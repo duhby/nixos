@@ -9,6 +9,7 @@
   };
   # Custom inputs
   getPkg = name: inputs.${name}.packages.${pkgs.system}.default;
+  opencodePkg = getPkg "opencode-flake";
   swayfxPkg = getPkg "swayfx";
   terminalRainLightningPkg = getPkg "terminal-rain-lightning";
   weztermPkg = getPkg "wezterm";
@@ -71,7 +72,6 @@ in {
     unstablePkgs.lunar-client
     neovim
     nix-search-cli
-    unstablePkgs.opencode
     pokeget-rs
     neofetch
     rage
@@ -87,6 +87,7 @@ in {
     wl-clipboard
     xorg.xlsclients
     # Custom
+    opencodePkg
     swayfxPkg
     terminalRainLightningPkg
     weztermPkg # temp

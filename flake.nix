@@ -5,6 +5,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    opencode-flake.url = "github:aodhanhayter/opencode-flake";
     swayfx = {
       url = "github:/WillPower3309/swayfx";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -23,19 +24,25 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixos-hardware, ...} @inputs: {
+  outputs = {
+    self,
+    nixpkgs,
+    nixos-hardware,
+    ...
+  } @ inputs: {
     nixosConfigurations = {
       # F13 Laptop
-      nivalis = nixpkgs.lib.nixosSystem
+      nivalis =
+        nixpkgs.lib.nixosSystem
         {
           system = "x86_64-linux";
           modules = [
             ./hosts/nivalis
-	    nixos-hardware.nixosModules.framework-12th-gen-intel
+            nixos-hardware.nixosModules.framework-12th-gen-intel
           ];
-	  specialArgs = {
-	    inherit inputs;
-	  };
+          specialArgs = {
+            inherit inputs;
+          };
         };
     };
   };
