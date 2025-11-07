@@ -9,6 +9,7 @@
   };
   # Custom inputs
   getPkg = name: inputs.${name}.packages.${pkgs.system}.default;
+  claudecodePkg = getPkg "claude-code";
   opencodePkg = getPkg "opencode-flake";
   swayfxPkg = getPkg "swayfx";
   terminalRainLightningPkg = getPkg "terminal-rain-lightning";
@@ -87,6 +88,7 @@ in {
     wl-clipboard
     xorg.xlsclients
     # Custom
+    claudecodePkg
     opencodePkg
     swayfxPkg
     terminalRainLightningPkg

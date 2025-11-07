@@ -6,6 +6,7 @@
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     opencode-flake.url = "github:aodhanhayter/opencode-flake";
+    claude-code.url = "github:sadjow/claude-code-nix";
     swayfx = {
       url = "github:/WillPower3309/swayfx";
       inputs.nixpkgs.follows = "nixpkgs";
