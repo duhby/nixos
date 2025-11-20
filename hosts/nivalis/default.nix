@@ -10,7 +10,7 @@
   # Custom inputs
   getPkg = name: inputs.${name}.packages.${pkgs.system}.default;
   claudecodePkg = getPkg "claude-code";
-  opencodePkg = getPkg "opencode-flake";
+  opencodePkg = getPkg "opencode";
   swayfxPkg = getPkg "swayfx";
   terminalRainLightningPkg = getPkg "terminal-rain-lightning";
   weztermPkg = getPkg "wezterm";
