@@ -60,6 +60,7 @@ in {
     btop
     chezmoi
     unstablePkgs.cursor-cli
+    jetbrains.datagrip
     delta
     devenv
     dict
