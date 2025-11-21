@@ -56,6 +56,7 @@ in {
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     bibata-cursors
+    brightnessctl
     btop
     chezmoi
     unstablePkgs.cursor-cli
