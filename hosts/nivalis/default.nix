@@ -71,6 +71,7 @@ in {
     gimp3
     git
     lazydocker
+    libnotify
     unstablePkgs.lunar-client
     neovim
     nix-search-cli
