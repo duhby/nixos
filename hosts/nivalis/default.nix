@@ -86,6 +86,7 @@ in {
     swaylock
     tt
     unzip
+    unstablePkgs.vesktop
     #wezterm
     wget
     wl-clipboard
