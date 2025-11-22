@@ -73,10 +73,10 @@ in {
     git
     lazydocker
     libnotify
-    unstablePkgs.lunar-client
     neovim
     nix-search-cli
     pokeget-rs
+    unstablePkgs.prismlauncher
     neofetch
     rage
     ripgrep
