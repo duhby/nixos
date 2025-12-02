@@ -15,6 +15,8 @@
   terminalRainLightningPkg = getPkg "terminal-rain-lightning";
   weztermPkg = getPkg "wezterm";
   zenbrowserPkg = getPkg "zen-browser";
+  # temp
+  surrealdbPkg = getPkg "surrealdb";
 in {
   imports = [
     ./hardware-configuration.nix
@@ -71,6 +73,7 @@ in {
     gcc
     gimp3
     git
+    jq
     lazydocker
     libnotify
     neovim
@@ -98,6 +101,7 @@ in {
     terminalRainLightningPkg
     weztermPkg # temp
     zenbrowserPkg
+    surrealdbPkg # temp
   ];
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code
