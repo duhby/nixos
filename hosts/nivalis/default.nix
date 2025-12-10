@@ -87,6 +87,7 @@ in {
     starship
     sway-contrib.grimshot
     swaylock
+    tokei
     tt
     unzip
     unstablePkgs.vesktop
